@@ -11,28 +11,28 @@ const Page = ({ params }) => {
       letter: "و",
       answers: ["da", "uu", "aa"],
       correctAnswer: "uu",
-      speak: "A",
+      speak: "Oa",
     },
     {
       id: 2,
-      letter: "B",
-      answers: ["daa", "uuu", "aaa"],
-      correctAnswer: "uuu",
-      speak: "B",
+      letter: "زَ",
+      answers: ["Zuu", "za", "da"],
+      correctAnswer: "za",
+      speak: "ja",
     },
     {
       id: 3,
-      letter: "C",
-      answers: ["daaa", "uuuu", "aaaa"],
-      correctAnswer: "uuuu",
-      speak: "C",
+      letter: "ب",
+      answers: ["daa", "baa", "ta"],
+      correctAnswer: "baa",
+      speak: "ba",
     },
   ]
   const [ans, setAns] = useState("")
   const [status, setStatus] = useState("neutral")
   const speakLetter = () => {
     const speech = new SpeechSynthesisUtterance(objArray[objNumber].speak)
-    speech.lang = "en" // Set language to English
+    speech.lang = "ar" // Set language to English
     window.speechSynthesis.speak(speech)
   }
   const handleCheck = () => {
@@ -93,7 +93,7 @@ const Page = ({ params }) => {
             : status === "wrong"
             ? "bg-red-200"
             : "bg-gray-200"
-        } p-4 flex justify-around items-center mt-20 md:mt-40`}
+        } p-4 flex justify-around items-center mt-14 md:mt-40`}
       >
         {status === "right" ? (
           <div className="flex justify-center items-center">
@@ -121,9 +121,16 @@ const Page = ({ params }) => {
             </button>
           </div>
         ) : (
-          <button className="px-4 py-2 bg-blue-300 hover:bg-blue-600 text-white rounded">
+          <Link
+            href={
+              objNumber + 1 >= objArray.length
+                ? "/complete"
+                : `/lesson/${objNumber + 2}`
+            }
+            className="px-4 py-2 bg-blue-300 hover:bg-blue-600 text-white rounded"
+          >
             Skip
-          </button>
+          </Link>
         )}
         <button
           className="px-4 py-2 bg-green-300 hover:bg-green-600 text-white rounded"
