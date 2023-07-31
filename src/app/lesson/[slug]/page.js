@@ -32,7 +32,7 @@ const Page = ({ params }) => {
   const [status, setStatus] = useState("neutral")
   const speakLetter = () => {
     const speech = new SpeechSynthesisUtterance(objArray[objNumber].speak)
-    speech.lang = "ar" // Set language to English
+    speech.lang = "en" // Set language to English
     window.speechSynthesis.speak(speech)
   }
   const handleCheck = () => {
