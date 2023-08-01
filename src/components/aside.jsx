@@ -17,7 +17,7 @@ const Aside = () => {
         </div>
         {/* </div> */}
         <ul className="p-4 mt-5">
-          <Link href="/">
+          <Link href="http://115.127.24.183:3001/www.leads.com/index.html">
             <li className="mb-5 ml-5 p-2 flex justify-start items-center hover:bg-[#f7f7f7] rounded-lg">
               <FcHome className="h-10 w-10" />
               <p className="block px-5 py-1 rounded font-bold">HOME</p>

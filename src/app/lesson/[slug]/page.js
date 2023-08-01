@@ -32,6 +32,9 @@ const Page = ({ params }) => {
   const [status, setStatus] = useState("neutral")
   const speakLetter = () => {
     const speech = new SpeechSynthesisUtterance(objArray[objNumber].speak)
+    const voices = window.speechSynthesis.getVoices()
+    speech.voice = voices[1] //
+    speech.rate = 0.5 //
     speech.lang = "en" // Set language to English
     window.speechSynthesis.speak(speech)
   }
@@ -93,13 +96,13 @@ const Page = ({ params }) => {
             : status === "wrong"
             ? "bg-red-200"
             : "bg-gray-200"
-        } p-4 flex justify-around items-center mt-14 md:mt-40`}
+        } p-4 flex justify-around items-center fixed bottom-0 left-0 right-0`}
       >
         {status === "right" ? (
           <div className="flex justify-center items-center">
-            <div className="text-white text-2xl font-bold mr-5">Correct</div>
+            <div className="text-black text-2xl font-bold mr-5">Correct</div>
             <Link
-              className="px-4 py-2 bg-green-300 hover:bg-green-600 text-white rounded"
+              className="px-4 py-2 bg-green-300 hover:bg-green-600 text-black font-bold rounded"
               // href="/learn"
               href={
                 objNumber + 1 >= objArray.length
@@ -114,7 +117,7 @@ const Page = ({ params }) => {
           <div className="flex justify-center items-center">
             <div className="text-white text-2xl font-bold mr-5">Wrong</div>
             <button
-              className="px-4 py-2 bg-green-300 hover:bg-green-600 text-white rounded"
+              className="px-4 py-2 bg-green-300 hover:bg-green-600 text-black font-bold rounded"
               onClick={handleTryAgain}
             >
               Try Again
@@ -127,13 +130,13 @@ const Page = ({ params }) => {
                 ? "/complete"
                 : `/lesson/${objNumber + 2}`
             }
-            className="px-4 py-2 bg-blue-300 hover:bg-blue-600 text-white rounded"
+            className="px-4 py-2 bg-blue-300 hover:bg-blue-600 text-black font-bold rounded"
           >
             Skip
           </Link>
         )}
         <button
-          className="px-4 py-2 bg-green-300 hover:bg-green-600 text-white rounded"
+          className="px-4 py-2 bg-green-300 hover:bg-green-600 text-black font-bold rounded"
           onClick={handleCheck}
         >
           Check
