@@ -60,7 +60,7 @@ const Page = ({ params }) => {
         <div className="pl-5">{objArray.length}</div>
       </div>
       {/* pb-8 pt-5 md:px-10 */}
-      <div className="flex justify-center items-center mt-16 md:mt-32">
+      <div className="flex justify-center items-center mt-16 md:mt-32 mb-28">
         <div className="w-4/5 md:w-1/3">
           <h1 className="text-2xl font-bold">What sound does this make?</h1>
           <div className="mt-16 md:mt-32 flex flex-col md:flex-row justify-center space-x-0 md:space-x-4 space-y-4 md:space-y-0">
